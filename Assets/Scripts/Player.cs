@@ -4,6 +4,9 @@ public class Player : MonoBehaviour
 {
    [SerializeField] float movementSpeed = 10f;
    [SerializeField] float padding = 1f;
+
+   float xMin;
+   float xMax;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -29,7 +32,7 @@ public class Player : MonoBehaviour
       Camera gameCamera = Camera.main;
 
       xMin = gameCamera.ViewportToWorldPoint(new Vector3(0,0,0)).x + padding;
-      xMax = gameCamera.ViewportToWorldPoint(new Vector3(1,0,0)).x + padding;
+      xMax = gameCamera.ViewportToWorldPoint(new Vector3(1,0,0)).x - padding;
       
    }
 }
