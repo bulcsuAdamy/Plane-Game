@@ -17,5 +17,6 @@ public class ScrollingBackground : MonoBehaviour
     void Update()
     {
         myMaterial.mainTextureOffset += offSet * Time.deltaTime;
+        Debug.Log(myMaterial.mainTextureOffset);
     }
 }
