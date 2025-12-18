@@ -10,6 +10,7 @@ public class BulletSpawner : MonoBehaviour
     [SerializeField] float minSpawnTime = 0.5f;
     [SerializeField] float maxSpawnTime = 2f;
     [SerializeField] int numberOfBullets = 10;
+    [SerializeField] float startDelay = 3f;
     float xMin;
     float xMax;
     int direction = 1;
@@ -41,6 +42,7 @@ public class BulletSpawner : MonoBehaviour
 
     IEnumerator SpawnBullets()
     {
+        yield return new WaitForSeconds(startDelay);
         for (int i = 0; i < numberOfBullets; i++)
         {
             SpawnBullet();
@@ -60,6 +62,6 @@ public class BulletSpawner : MonoBehaviour
     void Update()
     {
         MoveSpawner();
-        SpawnBullet();
+        SpawnBullets();
     }
 }
