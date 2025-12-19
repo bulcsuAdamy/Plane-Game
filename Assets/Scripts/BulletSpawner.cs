@@ -15,6 +15,9 @@ public class BulletSpawner : MonoBehaviour
     float xMax;
     int direction = 1;
 
+    [SerializeField] GameObject pointGiverPrefab;
+    [SerializeField] float pointGiverChance = 0.3f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void MoveSpawner()
     {
@@ -33,11 +36,26 @@ public class BulletSpawner : MonoBehaviour
         xMax = cam.ViewportToWorldPoint(new Vector3(1,0,0)).x - padding;
     }
     
-    void SpawnBullet()
+    void SpawnObstacle()
     {
-        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        GameObject prefabToSpawn;
 
-        bullet.GetComponent<Rigidbody2D>().linearVelocity = Vector2.down * bulletSpeed;
+        if (Random.value < pointGiverChance)
+        {
+            prefabToSpawn = pointGiverPrefab;
+        }
+        else
+        {
+            prefabToSpawn = bulletPrefab;
+        }
+
+        GameObject obj = Instantiate(prefabToSpawn, transform.position, Quaternion.identity);
+
+        Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.down* bulletSpeed;
+        }
     }
 
     IEnumerator SpawnBullets()
@@ -45,7 +63,7 @@ public class BulletSpawner : MonoBehaviour
         yield return new WaitForSeconds(startDelay);
         for (int i = 0; i < numberOfBullets; i++)
         {
-            SpawnBullet();
+            SpawnObstacle();
 
             float waitTime = Random.Range(minSpawnTime, maxSpawnTime);
             yield return new WaitForSeconds(waitTime);
