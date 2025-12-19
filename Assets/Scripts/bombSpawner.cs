@@ -1,12 +1,12 @@
 using UnityEngine;
 using System.Collections;
 
-public class bulletSpawner : MonoBehaviour
+public class bombSpawner : MonoBehaviour
 {
 
-    [SerializeField] GameObject bulletPrefab;
-    [SerializeField] float bulletSpeed = 5f;
-    [SerializeField] int numberOfBullets = 10;
+    [SerializeField] GameObject bombPrefab;
+    [SerializeField] float bombSpeed = 5f;
+    [SerializeField] int numberOfBombs = 10;
     [SerializeField] float minSpawnTime = 0.5f;
     [SerializeField] float maxSpawnTime = 2f;
     [SerializeField] float startDelay = 2f;
@@ -42,7 +42,7 @@ public class bulletSpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(startDelay);
 
-        for (int i = 0; i < numberOfBullets; i++)
+        for (int i = 0; i < numberOfBombs; i++)
         {
             SpawnBullet();
 
@@ -53,16 +53,16 @@ public class bulletSpawner : MonoBehaviour
 
     void SpawnBullet()
     {
-        GameObject bullet = Instantiate(
-            bulletPrefab,
+        GameObject bomb = Instantiate(
+            bombPrefab,
             transform.position,
             Quaternion.identity
         );
 
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        Rigidbody2D rb = bomb.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            rb.linearVelocity = Vector2.down * bulletSpeed;
+            rb.linearVelocity = Vector2.down * bombSpeed;
         }
     }
 

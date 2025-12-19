@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 500691912}
   - component: {fileID: 500691911}
   m_Layer: 0
-  m_Name: BulletShredder
+  m_Name: BombShredder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -695,7 +695,7 @@ GameObject:
   - component: {fileID: 1115216706}
   - component: {fileID: 1115216705}
   m_Layer: 0
-  m_Name: bulletSpawner
+  m_Name: bombSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -713,9 +713,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2079def4dea5a8845b28064059310b8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 5960635125446010105, guid: b28ea8d71adb18b4392e9831c8a56620, type: 3}
-  bulletSpeed: 5
-  numberOfBullets: 10
+  bombPrefab: {fileID: 7775504881470833810, guid: 4580ab68153aa2d47924400baeee67d8, type: 3}
+  bombSpeed: 5
+  numberOfBombs: 10
   minSpawnTime: 0.5
   maxSpawnTime: 2
   startDelay: 2
@@ -731,6 +731,50 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 6.48, z: -0.10502546}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1181158617
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1181158619}
+  - component: {fileID: 1181158618}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1181158618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181158617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c27ce6f8fe1ed0a4cab97c3789f5522d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1181158619
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181158617}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.5010515, y: -9.12805, z: -0.06991644}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1034,3 +1078,4 @@ SceneRoots:
   - {fileID: 500691913}
   - {fileID: 1660093866}
   - {fileID: 1115216706}
+  - {fileID: 1181158619}

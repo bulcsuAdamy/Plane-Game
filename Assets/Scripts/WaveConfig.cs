@@ -1,16 +1,16 @@
+using System.IO;
 using UnityEngine;
 
-public class WaveConfig : MonoBehaviour
+[CreateAssetMenu(menuName = "Wave Config")]
+public class WaveConfig : ScriptableObject
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] GameObject ObstaclePrefab;
+    [SerializeField] GameObject pathPrefab;
+    [SerializeField] int numberOfObstacles = 5;
+    [SerializeField] float timeBetweenSpawns = 1f;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public GameObject GetObstaclePrefab() => ObstaclePrefab;
+    public GameObject GetPathPrefab() => pathPrefab;
+    public int GetNumberOfObstacles() => numberOfObstacles;
+    public float GetTimeBetweenSpawns() => timeBetweenSpawns;
 }
