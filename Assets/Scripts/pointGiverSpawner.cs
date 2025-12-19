@@ -64,7 +64,7 @@ public class BulletSpawner : MonoBehaviour
 
     void Level1Complete()
     {
-        Debug.Log("Level 1 Complete - Ready for level 2");
+        levelManager.instance.StartLevel2();
     }
     void Start()
     {
