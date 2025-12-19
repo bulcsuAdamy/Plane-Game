@@ -165,12 +165,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   padding: 1
-  bulletPrefab: {fileID: 5960635125446010105, guid: b28ea8d71adb18b4392e9831c8a56620, type: 3}
-  bulletSpeed: 5
   minSpawnTime: 0.5
   maxSpawnTime: 2
-  numberOfBullets: 10
+  totalPointGivers: 10
+  fallSpeed: 5
   startDelay: 3
+  pointGiverPrefab: {fileID: 6548633982450202156, guid: aeda3368f62451143b5435ea93db12ea, type: 3}
+  pointGiverChance: 0.3
 --- !u!1 &500691910
 GameObject:
   m_ObjectHideFlags: 0
