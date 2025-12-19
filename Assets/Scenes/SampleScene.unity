@@ -713,14 +713,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2079def4dea5a8845b28064059310b8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bombPrefab: {fileID: 7775504881470833810, guid: 4580ab68153aa2d47924400baeee67d8, type: 3}
-  bombSpeed: 5
-  numberOfBombs: 10
-  minSpawnTime: 0.5
-  maxSpawnTime: 2
-  startDelay: 2
-  moveSpeed: 3
-  padding: 1
+  waveConfigs:
+  - {fileID: 11400000, guid: 81a35f2a66ea1d74d8901f496a149c4f, type: 2}
+  - {fileID: 11400000, guid: 777ba6ebe56cf144e891f908a031de01, type: 2}
+  - {fileID: 11400000, guid: a134bfcbdb460b84f8f92d980524a998, type: 2}
+  - {fileID: 11400000, guid: 288dcdaf546f7e945b8dc9bf645b02f9, type: 2}
+  looping: 1
 --- !u!4 &1115216706
 Transform:
   m_ObjectHideFlags: 0
