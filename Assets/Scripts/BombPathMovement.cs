@@ -10,9 +10,23 @@ public class BulletPathMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        waypoints = GetComponentsInParent<Transform>();
-        transform.position = waypoints[1].position;
-        waypointIndex = 1;
+        Transform path = transform.parent;
+
+        if (path == null)
+        {
+            Debug.LogError("Bomb has no path parent");
+            Destroy(gameObject);
+            return;
+        }
+
+        waypoints = new Transform[path.childCount];
+
+        for(int i = 0; i < path.childCount; i++)
+        {
+            waypoints[i] = path.GetChild(i);
+        }
+
+        transform.position = waypoints[0].position;
     }
 
     // Update is called once per frame
