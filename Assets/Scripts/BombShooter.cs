@@ -28,13 +28,7 @@ public class BombShooter : MonoBehaviour
     
     void Fire()
     {
-        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        if(rb!= null)
-        {
-            rb.linearVelocity = Vector2.down*bulletSpeed;
-        }
+        Instantiate(bulletPrefab, transform.position, Quaternion.identity);
     }
     // Update is called once per frame
     void Update()
