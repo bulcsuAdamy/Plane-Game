@@ -33,11 +33,24 @@ public class BulletPathMovement : MonoBehaviour
     void Update()
     {
         MoveAlongPath();
+        
     }
 
     void MoveAlongPath()
     {
+        if (waypoints == null || waypoints.Length == 0)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         if (waypointIndex >= waypoints.Length)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        if (waypoints[waypointIndex] == null)
         {
             Destroy(gameObject);
             return;
@@ -50,5 +63,10 @@ public class BulletPathMovement : MonoBehaviour
         {
             waypointIndex++;
         }
+    }
+
+    void OnDestroy()
+    {
+        StopAllCoroutines();
     }
 }
