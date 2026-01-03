@@ -19,11 +19,13 @@ public class BulletHomingMovement : MonoBehaviour
 
         moveDirection = (player.transform.position - transform.position).normalized;
 
+        float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, angle - 90f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(moveDirection * speed * Time.deltaTime);
+        transform.position += (Vector3)(moveDirection * speed * Time.deltaTime);
     }
 }

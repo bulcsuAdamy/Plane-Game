@@ -7,7 +7,7 @@ public class WaveConfig : ScriptableObject
     [SerializeField] GameObject ObstaclePrefab;
     [SerializeField] GameObject pathPrefab;
     [SerializeField] int numberOfObstacles = 5;
-    [SerializeField] float timeBetweenSpawns = 1f;
+    [SerializeField] float timeBetweenSpawns = 3f;
 
     public GameObject GetObstaclePrefab() => ObstaclePrefab;
     public GameObject GetPathPrefab() => pathPrefab;

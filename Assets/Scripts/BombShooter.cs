@@ -22,17 +22,20 @@ public class BombShooter : MonoBehaviour
             float waitTime = Random.Range(minFireDelay, maxFireDelay);
             yield return new WaitForSeconds(waitTime);
 
+            Debug.Log("Bomb firing bullet");
             Fire();
         }
     }
     
     void Fire()
     {
+        if (bulletPrefab == null)
+        {
+            Debug.Log("Bullet prefab not assigned");
+            return;
+        }
+        
         Instantiate(bulletPrefab, transform.position, Quaternion.identity);
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

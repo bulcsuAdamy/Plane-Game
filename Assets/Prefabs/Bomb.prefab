@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -4888562364379577167}
   - component: {fileID: 2511390832881807533}
   - component: {fileID: -2146397786880857625}
+  - component: {fileID: 2683851155084798047}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Untagged
@@ -176,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978cca430121abc4b89fbf27274c46db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 2
 --- !u!114 &-2146397786880857625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,4 +190,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06a0fb76274003a4888f0cce0618ed76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 1
+--- !u!114 &2683851155084798047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7775504881470833810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28ab33d2ddabc3c44aa9cb1a53e353f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 5960635125446010105, guid: b28ea8d71adb18b4392e9831c8a56620, type: 3}
+  bulletSpeed: 6
+  minFireDelay: 1
+  maxFireDelay: 3

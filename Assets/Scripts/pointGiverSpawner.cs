@@ -64,7 +64,7 @@ public class BulletSpawner : MonoBehaviour
 
     void Level1Complete()
     {
-        levelManager.instance.StartLevel2();
+        levelManager.instance.StartLevel2WithDelay(3f);
     }
     void Start()
     {
