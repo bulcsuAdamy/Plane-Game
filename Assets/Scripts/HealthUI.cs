@@ -1,11 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class HealthUI : MonoBehaviour
 {
     [SerializeField] Image[] hearts;
-    [SerializeField] Sprite fullHeart;
-    [SerializeField] Sprite emptyHeart;
     [SerializeField] PlayerHealth playerhealth;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -20,7 +18,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
         for (int i = 0; i<hearts.Length; i++)
         {
-            hearts[i].sprite = i < currentHealth ? fullHeart : emptyHeart;
+            hearts[i].gameObject.SetActive(i < currentHealth);
         }
     }
 }
