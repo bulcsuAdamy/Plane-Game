@@ -23,7 +23,7 @@ public class levelManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        countdownUI = FindAnyObjectByType<LevelCOuntDownUI>();
+        countdownUI = Resources.FindObjectsOfTypeAll<LevelCOuntDownUI>()[0];
     }
 
     public void StartLevel2WithCountdown()

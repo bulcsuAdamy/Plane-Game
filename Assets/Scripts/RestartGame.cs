@@ -6,7 +6,7 @@ public class RestartGame : MonoBehaviour
     public void Restart()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Sample Scene");
+        SceneManager.LoadScene("Game");
     }
 
     public void BackToMenu()

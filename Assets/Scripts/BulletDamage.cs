@@ -6,6 +6,7 @@ public class BulletDamage : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        AudioManager.instance.PlaySFX(AudioManager.instance.bulletHit);
         PlayerHealth player = other.GetComponent<PlayerHealth>();
 
         if (player != null)

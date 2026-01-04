@@ -16,7 +16,6 @@ public class pointGiverSpawner : MonoBehaviour
     int direction = 1;
 
     [SerializeField] GameObject pointGiverPrefab;
-    [SerializeField] float pointGiverChance = 0.3f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void MoveSpawner()

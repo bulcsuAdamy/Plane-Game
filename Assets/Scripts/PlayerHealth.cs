@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour
     public int CurrentHealth => currentHealth;
     public void TakeDamage(int damage)
     {
+        AudioManager.instance.PlaySFX(AudioManager.instance.playerHit);
         currentHealth -= damage;
         
         FindAnyObjectByType<HealthUI>()?.UpdateHealth();
@@ -19,6 +20,7 @@ public class PlayerHealth : MonoBehaviour
     
     void Die()
     {
+        AudioManager.instance.PlaySFX(AudioManager.instance.playerDeath);
         Debug.Log("Player died");
         GameOverUI.instance.ShowGameOver();
         Destroy(gameObject);
