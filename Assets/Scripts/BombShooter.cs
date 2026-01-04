@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class BombShooter : MonoBehaviour
@@ -10,7 +11,6 @@ public class BombShooter : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Debug.Log("Obstacle shooter started on" + gameObject.name);
         StartCoroutine(ShootRoutine());
     }
 
@@ -19,7 +19,7 @@ public class BombShooter : MonoBehaviour
         while (true)
         {
             yield return new WaitUntil(() => levelManager.instance.IsLevel2());
-            float waitTime = Random.Range(minFireDelay, maxFireDelay);
+            float waitTime = UnityEngine.Random.Range(minFireDelay, maxFireDelay);
             yield return new WaitForSeconds(waitTime);
 
             Debug.Log("Bomb firing bullet");
@@ -29,13 +29,13 @@ public class BombShooter : MonoBehaviour
     
     void Fire()
     {
-        if (bulletPrefab == null)
+        GameObject bullet = Instantiate(bulletPrefab, transform.position, quaternion.identity);
+        Rigidbody2D rb =  bullet.GetComponent<Rigidbody2D>();
+
+        if (rb != null)
         {
-            Debug.Log("Bullet prefab not assigned");
-            return;
+            rb.linearVelocity = (FindAnyObjectByType<Player>().transform.position - transform.position).normalized *bulletSpeed;
         }
-        
-        Instantiate(bulletPrefab, transform.position, Quaternion.identity);
     }
 
 }
