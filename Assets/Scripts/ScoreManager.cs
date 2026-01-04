@@ -21,7 +21,7 @@ public class ScoreManager : MonoBehaviour
     public void AddScore(int amount)
     {
         score += amount;
-        Debug.Log("Score: " + score);
+        FindAnyObjectByType<ScoreUI>()?.UpdateScore();
     }
 
     public int GetScore()

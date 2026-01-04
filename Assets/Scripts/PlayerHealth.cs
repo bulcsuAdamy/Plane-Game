@@ -4,16 +4,19 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] int maxHealth = 5;
     int currentHealth;
+    public int CurrentHealth => currentHealth;
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        Debug.Log("Player Health: " + currentHealth);
+        
+        FindAnyObjectByType<HealthUI>()?.UpdateHealth();
 
         if (currentHealth <= 0)
         {
             Die();
         }
     }
+    
     void Die()
     {
         Debug.Log("Player died");
@@ -25,9 +28,4 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
