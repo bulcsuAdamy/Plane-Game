@@ -5,6 +5,7 @@ public class Player : MonoBehaviour
    [SerializeField] float movementSpeed = 10f;
    [SerializeField] float padding = 1f;
 
+   bool canMove = true;
    float xMin;
    float xMax;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -16,9 +17,14 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      if (!canMove) return;
        Move(); 
     }
 
+   public void SetCanMove(bool value)
+   {
+      canMove = value;
+   }
     private void Move()
     {
        var deltaX = Input.GetAxis("Horizontal") *Time.deltaTime * movementSpeed;

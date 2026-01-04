@@ -2,7 +2,7 @@ using System.Collections;
 using System.Drawing;
 using UnityEngine;
 
-public class BulletSpawner : MonoBehaviour
+public class pointGiverSpawner : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 3f;
     [SerializeField] float padding = 1f;
@@ -64,7 +64,7 @@ public class BulletSpawner : MonoBehaviour
 
     void Level1Complete()
     {
-        levelManager.instance.StartLevel2WithDelay(3f);
+        levelManager.instance.StartLevel2WithCountdown();
     }
     void Start()
     {

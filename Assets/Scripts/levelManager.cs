@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Threading;
 using UnityEngine;
 
 public class levelManager : MonoBehaviour
@@ -7,6 +8,8 @@ public class levelManager : MonoBehaviour
 
     int currentLevel = 1;
     bool level2Started = false;
+
+    LevelCOuntDownUI countdownUI;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,24 +21,35 @@ public class levelManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            return;
         }
+        countdownUI = FindAnyObjectByType<LevelCOuntDownUI>();
     }
 
-    public void StartLevel2WithDelay(float delay)
+    public void StartLevel2WithCountdown()
     {
-        if (!level2Started)
-        {
-            StartCoroutine(Level2DelayRoutine(delay));
-        }
-        currentLevel = 2;
+        if (level2Started) return;
 
-    }
-
-    IEnumerator Level2DelayRoutine(float delay)
-    {
         level2Started = true;
-        Debug.Log("Level 2 started in " + delay + " second...");
-        yield return new WaitForSeconds(delay);
+
+        Player player = FindAnyObjectByType<Player>();
+        if (player != null)
+        {
+            player.SetCanMove(false);
+        }
+
+        countdownUI.StartCountdown(() =>
+        {
+            currentLevel = 2;
+
+            if (player != null)
+            {
+                player.SetCanMove(true);
+            }
+            Debug.Log("Level 2 started");
+        });
+
+
     }
     public bool IsLevel2()
     {

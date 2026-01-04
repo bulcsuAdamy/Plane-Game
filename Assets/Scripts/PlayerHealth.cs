@@ -20,12 +20,15 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
         Debug.Log("Player died");
+        GameOverUI.instance.ShowGameOver();
         Destroy(gameObject);
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         currentHealth = maxHealth;
+
+        FindAnyObjectByType<HealthUI>()?.UpdateHealth();
     }
 
 }
